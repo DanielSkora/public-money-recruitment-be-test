@@ -9,6 +9,11 @@ using VacationRental.Api.Models;
 
 namespace VacationRental.Api
 {
+    using Infrastructure.Repositories;
+    using Infrastructure.Repositories.Interfaces;
+    using Infrastructure.Services;
+    using Infrastructure.Services.Interfaces;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,6 +32,11 @@ namespace VacationRental.Api
 
             services.AddSingleton<IDictionary<int, RentalViewModel>>(new Dictionary<int, RentalViewModel>());
             services.AddSingleton<IDictionary<int, BookingViewModel>>(new Dictionary<int, BookingViewModel>());
+            services.AddSingleton<IRentalRepository, RentalRepository>();
+            services.AddSingleton<IBookingRepository, BookingRepository>();
+            services.AddScoped<IBookingService, BookingService>();
+            services.AddScoped<IRentalService, RentalService>();
+            services.AddScoped<ICalendarService, CalendarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

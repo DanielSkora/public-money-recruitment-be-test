@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Net.Http;
-using Xunit;
-
-namespace VacationRental.Api.Tests
+﻿namespace VacationRental.Api.Tests.Integration
 {
+    using System;
+    using System.Net.Http;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.TestHost;
+    using Xunit;
+
     [CollectionDefinition("Integration")]
     public sealed class IntegrationFixture : IDisposable, ICollectionFixture<IntegrationFixture>
     {
